@@ -1,0 +1,59 @@
+.general{
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 0.1rem;
+    justify-content: center;
+}
+.arrowleft {
+    background: linear-gradient( to right, rgba( 0, 0, 0, 0.3) 5%,rgba( 0, 0, 0, 0) 95%);
+    width: 70px;
+    height: 25px;
+    border: transparent;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-weight: 600;
+}
+.arrowright{
+    background: linear-gradient( to right, rgba( 0, 0, 0, 0) 5%,rgba( 0, 0, 0, 0.3) 95%);
+    width: 70px;
+    height: 25px;
+    border: transparent; 
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: aliceblue;
+}
+
+.buttons {
+    background: transparent;
+    width: 40px;
+    height: 25px;
+    font-weight: 600;
+    font-size: 20px;
+    border: transparent; 
+    color: aliceblue;
+}
+
+.arrowleft:hover{
+    background: linear-gradient(to right,  #c6d4df , transparent);
+}
+
+.arrowright:hover{
+    background: linear-gradient(to right, transparent,  #c6d4df );
+}
+
+.buttons:hover{
+    scale: 1.5;
+}
+
+.active{
+    background-color: #c6d4dfab;
+    color: black;
+    border-radius: 2px;
+}

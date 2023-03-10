@@ -1,0 +1,122 @@
+.general{
+    background-color: #212429;
+    color: aliceblue;
+    margin: auto;
+    width: 850px;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+
+.general h1{
+    padding: 15px;
+    color: #1997F8;
+    text-transform: uppercase;
+}
+
+.general form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.general label{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    width: 80%;
+    margin: auto;
+    
+
+}
+
+.general label input{
+    width: 80%;
+    margin: auto;
+    background-color: #32353C;
+    border: #32353C;
+    border-radius: 2px;
+    padding: 10px;
+    color: aliceblue;
+    font-size: 16px;
+}
+.general label input:hover{
+    background-color: #3D4450;
+}
+
+.general label select{
+    width: 83%;
+    margin: auto;
+    background-color: #32353C;
+    border: #32353C;
+    border-radius: 2px;
+    padding: 10px;
+    color: aliceblue;
+    font-family: 'Quicksand', 'Raleway', sans-serif;
+    font-size: 16px;
+}
+
+.general label select option{
+    font-family: 'Quicksand', 'Raleway', sans-serif;
+    font-size: 16px;
+}
+.div{
+    width: 65%;
+    background-color: #797f87;
+    margin: 15px;
+    padding: 5px;    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 2px;
+}
+.div span{
+    margin: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+.div span button{
+    margin: auto;
+    background-color:#316282;
+    border: 1px solid rgb(111, 108, 108);
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+.submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: linear-gradient(to right, #06BEFF, #2D74FF);
+    height: 35px;
+    width: 150px;
+    border-radius: 2px;
+    color: aliceblue;
+    font-family: 'Quicksand', 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 20px;
+    cursor: pointer;
+
+}
+.submit:hover{
+    transform: scale(1.1);
+}
+
+
+@media(max-width:940px){
+    .general{
+        width: 85%;
+    }
+}

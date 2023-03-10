@@ -1,0 +1,14 @@
+body {
+  background-color: #1B2838;
+  margin: 0;
+  font-family: 'Quicksand', 'Raleway', sans-serif;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

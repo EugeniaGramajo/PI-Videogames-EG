@@ -1,0 +1,25 @@
+.general {
+    width: 65%;
+    margin: auto;
+    
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+
+@media(max-width:1600px){
+    .general{
+        width: 75%;
+    }
+}
+
+@media(max-width:940px){
+    .general{
+        width: 75%;
+    }
+}

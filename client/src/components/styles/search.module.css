@@ -1,0 +1,84 @@
+.display{
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+}
+.general{
+    display: flex;
+    float: none;
+    padding: 3px 4px 2px;
+    height: 30px;
+}
+
+.general {
+    background-image: none;
+    background-color: #316282;
+    border-radius: 3px;
+    border: 1px solid rgba( 0, 0, 0, 0.3);
+    box-shadow: 1px 1px 0px rgb(255 255 255 / 20%);
+    color: #fff;
+    margin-bottom: 0px;
+    outline: none;
+    height: 27px;
+    padding: 0px 6px;
+}
+.input{
+    color: #0e1c25;
+    font-size: 14px;
+    margin-top: 1px;
+    text-shadow: 1px 1px 0px rgb(255 255 255 / 10%);
+    font-weight: 300;
+    border: none;
+    background-color: transparent;
+    color: #eeeeee;
+    margin-top: 2px;
+    margin-left: 8px;
+    width: calc( 100% - 25px - 8px );
+    outline: none;
+    line-height: 25px;
+
+}
+.general button{
+    
+    border: none;
+    font-size: 14px;
+    color: #b8b6b4;
+    background-color: transparent;
+    text-transform: uppercase;
+    width: 25px;
+    height: 25px;
+
+    top: 1px;
+    right: -1px;
+}
+.display button{
+    display: block;
+    position: relative;
+    float: left;
+    font-size: 14px;
+    color: #b8b6b4;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+
+}
+.display button:hover{
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.display button img{
+    height: 26px;
+    margin-top: -2px;
+    margin-left: -2px;
+    
+}
+
+@media (max-width: 940px){
+    .general{
+        width: 100%;
+    }
+    .input{
+        width: 100%;
+    }
+}

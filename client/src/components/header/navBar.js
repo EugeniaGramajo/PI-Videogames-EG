@@ -1,0 +1,48 @@
+import React from "react";
+import Search from "./search";
+import styles from "../styles/navBar.module.css"
+import ButtonMenu from "../header/buttonMobile"
+import { useSelector } from "react-redux";
+import MenuMobile from "./menuMobile";
+import { Link } from "react-router-dom";
+
+export default function NavBar(){
+
+    const activeNavBar = useSelector(state=>state.navbar)
+    console.log(activeNavBar)
+
+    return(
+        <>
+        <div className={styles.general}>
+            <div className={styles.logo}>
+             <img src="https://i.imgur.com/5rqOtaZ.png" alt="logo"/>
+            <h1>Henry</h1>   
+            </div>
+        
+            <div className={styles.itemList}>
+                <Link to={"/home"}><div>Home</div></Link>
+                <Link to={"/create"}><div>Create a new game</div></Link>
+                <Link to={"/about"}><div>About</div></Link>
+                
+            </div>
+            <div > <Search></Search></div>
+           
+
+        </div>
+        <div className={styles.hidden}></div>
+        <div className={styles.search}>
+        <div className={styles.generalResponsive}>
+            <ButtonMenu></ButtonMenu>
+        <div className={styles.logo}>
+             <img src="https://i.imgur.com/5rqOtaZ.png" alt="logo"/>
+            <h1>Henry</h1>   
+            </div>
+                    
+       
+        </div><div className={styles.search}> <Search></Search></div>
+        
+        </div>
+        <MenuMobile></MenuMobile>
+ </>
+    )
+}
