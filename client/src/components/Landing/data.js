@@ -108,6 +108,90 @@ export const data = [
     image: "https://i.imgur.com/DQkNHmT.jpg",
     name: "Halo-Infinity",
     id: 58751,
+  },{
+    image: "https://i.imgur.com/9uLBYF5.jpg",
+    name: "Dark Fall 3: Lost Souls",
+    id: 22959,
+  },
+  {
+    image: "https://i.imgur.com/VrAciyz.jpg",
+    name: "Darkout",
+    id: 646504,
+  },
+  {
+    image: "https://i.imgur.com/XYXzY5t.jpg",
+    name: "Need for Speed: Shift",
+    id: 19400,
+  },
+  {
+    image: "https://i.imgur.com/pMAx2m5.jpg",
+    name: "DARKSPELL",
+    id: 810049,
+  },
+  {
+    image: "https://i.imgur.com/PBYXW4o.jpg",
+    name: "DarkHouse",
+    id: 702311,
+  },
+  {
+    image: "https://i.imgur.com/BHnkM6g.jpg",
+    name: "Dark Deception",
+    id: 241056,
+  },
+  {
+    image: "https://i.imgur.com/fpX81QO.jpg",
+    name: "Dark Souls: Remastered",
+    id: 51610,
+  },
+  {
+    image: "https://i.imgur.com/srDhU19.jpg",
+    name: "Dark Messiah of Might and Magic",
+    id: 19380,
+  },
+  {
+    image: "https://i.imgur.com/aluFPOE.jpg",
+    name: "Might & Magic Heroes VII",
+    id: 17283,
+  },
+  {
+    image: "https://i.imgur.com/3GIfRFg.jpg",
+    name: "Might & Magic X - Legacy",
+    id: 17833,
+  },
+  {
+    image: "https://i.imgur.com/WB0QIgl.jpg",
+    name: "Might & Magic: Heroes VI",
+    id: 17376,
+  },
+  {
+    image: "https://i.imgur.com/FtCZPGF.jpg",
+    name: "Mighty Gunvolt",
+    id: 20827,
+  },
+  {
+    image: "https://i.imgur.com/ZS5aT0Y.jpg",
+    name: "ARC Raiders",
+    id: 704787,
+  },
+  {
+    image: "https://i.imgur.com/qM6tnUS.jpg",
+    name: "CardSurvival: Tropical Island",
+    id: 926975,
+  },
+  {
+    image: "https://i.imgur.com/fJfiFUk.jpg",
+    name: "Soulfire",
+    id: 61030,
+  },
+  {
+    image: "https://i.imgur.com/cBqCjAh.jpg",
+    name: "FIFA 22",
+    id: 546464,
+  },
+  {
+    image: "https://i.imgur.com/Tg5pd2Y.jpg",
+    name: "Surgeon Simulator",
+    id: 2778,
   },
 ];
 
