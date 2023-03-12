@@ -11,6 +11,8 @@ import CustomVideogame from "./components/customVideogame";
 import Details from "./components/details";
 import Login from "./components/login";
 import Register from "./components/register"
+import axios from "axios";
+axios.defaults.baseURL = "https://pi-videogames-eg-production.up.railway.app"
 
 function App() {
   const dispatch = useDispatch();

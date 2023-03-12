@@ -20,6 +20,7 @@ const initialState = {
     notFound: false,
     navbar: false,
     detailGame:{},
+    filters:[],
     backgroundImages:[]
   };
   

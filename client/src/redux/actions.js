@@ -23,7 +23,7 @@ export const FILTERS = "FILTERS"
 
 export const getVideogames = () => async (dispatch) => {
   try {
-    const response = await axios.get("http://localhost:3001/videogames");
+    const response = await axios.get("/videogames");
     dispatch({
       type: GET_VIDEOGAMES,
       payload: response.data,
@@ -50,7 +50,7 @@ export const paginationGames = (payload)=>{
 
 export const getGenres = ()=> async (dispatch)=>{
   try {
-    const genres = await axios.get("http://localhost:3001/genres")
+    const genres = await axios.get("/genres")
     dispatch({
       type: GET_GENRES,
       payload: genres.data
@@ -69,7 +69,7 @@ export const filterGenres = (payload)=>{
 
 export const original = ()=> async (dispatch)=>{
     try {
-      const data = await axios.get("http://localhost:3001/videogames/api")
+      const data = await axios.get("/videogames/api")
       console.log("original data",data.data)
       dispatch({
         type: ORIGINAL,
@@ -82,7 +82,7 @@ export const original = ()=> async (dispatch)=>{
 
 export const created = ()=> async (dispatch)=>{
   try {
-    const data = await axios.get("http://localhost:3001/videogames/db")
+    const data = await axios.get("/videogames/db")
     console.log("createddata",data.data)
     dispatch({
       type: CREATED,
@@ -109,7 +109,7 @@ export const sortFilter = (payload)=>{
 
 export const getPlatforms = () => async (dispatch)=>{
   try {
-    const data = await axios.get("http://localhost:3001/platforms")
+    const data = await axios.get("/platforms")
     dispatch({
       type: PLATFORMS,
       payload: data.data
@@ -121,7 +121,7 @@ export const getPlatforms = () => async (dispatch)=>{
 
 export const getUsers = ()=> async (dispatch) =>{
   try {
-    const res = await axios.get("http://localhost:3001/users")
+    const res = await axios.get("/users")
     dispatch(
       {type:GET_USERS,
       payload: res.data}
@@ -146,7 +146,7 @@ export const logOut = ()=>{
 
 export const search = (search)=> async (dispatch) =>{
   try {
-    const res = await axios.get(`http://localhost:3001/videogames?name=${search}`)
+    const res = await axios.get(`/videogames?name=${search}`)
     dispatch(
       {type:SEARCH,
       payload: res.data}
@@ -166,7 +166,7 @@ export const mobileNavBar = ()=>{
 }
 
 export const detailGame = (id) => async (dispatch)=>{
-  try{const res = await axios.get(`http://localhost:3001/videogames/${id}`)
+  try{const res = await axios.get(`/videogames/${id}`)
   dispatch(
     {type:DETAIL_GAMES,
     payload: res.data}
@@ -183,7 +183,7 @@ export const getRandomGames = ()=>{
 
 export const getUser = (id)=>async (dispatch)=>{
 
- try{ const res = await axios.get(`http://localhost:3001/users/${id}`)
+ try{ const res = await axios.get(`/users/${id}`)
  dispatch({
     type:GET_USER,
     payload: res.data
