@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { created, original } from "../../../redux/actions";
+import styles from "../../styles/filters.module.css"
 
 export default function Origin () {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function Origin () {
 
   return (
     <>
-      <select onChange={selectHandler}>
+      <select className={styles.select} onChange={selectHandler}>
         <option disabled selected>Select an origin</option>
         <option value="created">CREATED</option>
         <option value="original">ORIGINAL</option>

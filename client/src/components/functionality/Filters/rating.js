@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { ratingFilter } from "../../../redux/actions";
+import styles from "../../styles/filters.module.css"
 
 export default function Rating() {
 
@@ -11,7 +12,7 @@ export default function Rating() {
     
   return (
     <>
-      <select onChange={selectHandler}>
+      <select className={styles.select} onChange={selectHandler}>
         <option disabled selected>
           Order by rating
         </option>

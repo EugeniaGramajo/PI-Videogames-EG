@@ -18,7 +18,7 @@ export const ACTIVE_NAVBAR = "ACTIVE_NAVBAR"
 export const DETAIL_GAMES = "DETAIL_GAME"
 export const GET_RANDOM_GAMES = "GET_RANDOM_GAMES"
 export const ADD_FAVORITE = "ADD_FAVORITE"
-
+export const FILTERS = "FILTERS"
 
 
 export const getVideogames = () => async (dispatch) => {

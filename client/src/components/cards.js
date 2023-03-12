@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Card from "./card";
+import FilterBar from "./filtersBar";
 import styles from "./styles/cards.module.css"
-import Pagination from "./functionality/pagination"
 
 export default function Cards (){
 
@@ -11,8 +11,7 @@ export default function Cards (){
     return(
         <>
        <div className={styles.general}>
-
-        <Pagination></Pagination>
+        <FilterBar></FilterBar>
         <div className={styles.cards} >
              
           {

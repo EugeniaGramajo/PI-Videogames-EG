@@ -56,8 +56,8 @@ const initialState = {
         }
       case RATING:
         const ordered = action.payload === "asc" 
-        ? state.showGames.sort((a, b) => a.rating - b.rating)
-        : state.showGames.sort((a, b) => b.rating - a.rating);
+        ? [...state.showGames].sort((a, b) => a.rating - b.rating)
+        : [...state.showGames].sort((a, b) => b.rating - a.rating);
         return{
           ...state, showGames: ordered
         }

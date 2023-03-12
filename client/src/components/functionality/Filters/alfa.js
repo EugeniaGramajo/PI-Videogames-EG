@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { sortFilter } from "../../../redux/actions";
+import styles from "../../styles/filters.module.css"
 
 export default function Alphabet() {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ export default function Alphabet() {
   };    
   return (
     <>
-      <select onChange={selectHandler}>
+      <select className={styles.select} onChange={selectHandler}>
         <option disabled defaultValue>
           Order by alphabet
         </option>

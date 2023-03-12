@@ -1,0 +1,27 @@
+.select{
+    width: 140px;
+    height: 30px;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 2px;
+    border: none;
+    background: #316282 ;
+    color: aliceblue;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.select option{
+    background-color: #797f87;
+    width: 140px;
+}
+
+.select option:checked {
+    background-color: #171A21;
+    
+  }
+
+.general{
+    margin: 15px;
+}
