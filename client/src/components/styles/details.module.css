@@ -35,12 +35,24 @@
     color: aliceblue;
     gap: 5.5rem;
 }
+.list div{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .list h3 {
     color: #06BEFF;
+    width: 100%;
+}
+.list p{
+    margin: auto;
+    margin-top: 0px;
+    text-align: center;
 }
 
 .list il{
-
+    float: left;
     margin: 11px;
     padding: 5px;
 }

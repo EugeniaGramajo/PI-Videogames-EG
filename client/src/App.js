@@ -1,24 +1,29 @@
 import "./App.css";
 
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route } from "react-router-dom";
-import { getGenres, getPlatforms, getVideogames } from "../src/redux/actions";
+import { getGenres, getPlatforms, getRandomGames, getVideogames } from "../src/redux/actions";
 import Cards from "./components/cards";
 import NavBar from "./components/header/navBar";
-import LandingPage from "./components/landingPage";
+import LandingPage from "./components/Landing/landingPage";
 import CustomVideogame from "./components/customVideogame";
 import Details from "./components/details";
+import Login from "./components/login";
+import Register from "./components/register"
 
 function App() {
   const dispatch = useDispatch();
+  const state = useSelector(state=>state)
 
   useEffect(() => {
     dispatch(getVideogames());
     dispatch(getGenres());
     dispatch(getPlatforms());
+    dispatch(getRandomGames())
   }, []);
 
+console.log(state)
   return (
     <div className="App">
       <Route exact path={"/"}>
@@ -35,6 +40,12 @@ function App() {
       <Route exact path={"/videogames/:id"}>
         <NavBar></NavBar>
           <Details></Details>
+      </Route>
+      <Route exact path={"/login"}>
+        <Login></Login>
+      </Route>
+      <Route exact path={"/register"}>
+        <Register></Register>
       </Route>
     </div>
   );

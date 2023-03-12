@@ -5,6 +5,7 @@ import ButtonMenu from "../header/buttonMobile"
 import { useSelector } from "react-redux";
 import MenuMobile from "./menuMobile";
 import { Link } from "react-router-dom";
+import ProfileBar from "./profileBar";
 
 export default function NavBar(){
 
@@ -13,11 +14,12 @@ export default function NavBar(){
 
     return(
         <>
+        <ProfileBar></ProfileBar>
         <div className={styles.general}>
-            <div className={styles.logo}>
+            <Link to={"/"}> <div className={styles.logo}>
              <img src="https://i.imgur.com/5rqOtaZ.png" alt="logo"/>
             <h1>Henry</h1>   
-            </div>
+            </div></Link>
         
             <div className={styles.itemList}>
                 <Link to={"/home"}><div>Home</div></Link>

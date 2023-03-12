@@ -16,6 +16,9 @@ export const LOG_OUT = "LOG_OUT"
 export const SEARCH = "SEARCH"
 export const ACTIVE_NAVBAR = "ACTIVE_NAVBAR"
 export const DETAIL_GAMES = "DETAIL_GAME"
+export const GET_RANDOM_GAMES = "GET_RANDOM_GAMES"
+export const ADD_FAVORITE = "ADD_FAVORITE"
+
 
 
 export const getVideogames = () => async (dispatch) => {
@@ -171,3 +174,21 @@ export const detailGame = (id) => async (dispatch)=>{
     console.log(error)
   }
 }
+
+export const getRandomGames = ()=>{
+    return {
+      type:GET_RANDOM_GAMES
+    }
+}
+
+export const getUser = (id)=>async (dispatch)=>{
+
+ try{ const res = await axios.get(`http://localhost:3001/users/${id}`)
+ dispatch({
+    type:GET_USER,
+    payload: res.data
+  })}catch(error){
+    console.log(error)
+  }
+}
+

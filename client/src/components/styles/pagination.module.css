@@ -50,6 +50,8 @@
 
 .buttons:hover{
     scale: 1.5;
+    text-shadow: 0 0 5px #fff;
+    cursor: pointer;
 }
 
 .active{

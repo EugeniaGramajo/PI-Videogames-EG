@@ -2,12 +2,16 @@ body {
   background-color: #1B2838;
   margin: 0;
   font-family: 'Quicksand', 'Raleway', sans-serif;
+  color: aliceblue;
 }
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+a{
+  color: aliceblue;
+  text-decoration: none;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

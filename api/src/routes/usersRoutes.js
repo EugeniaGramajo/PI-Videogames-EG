@@ -63,18 +63,18 @@ router.put("/add/:id",async (req, res) => {
       res.status(400).send(error)
     }
     })
-/* router.delete("/:id/pokemons/:idGame", async (req,res)=>{
+router.delete("/:id/pokemons/:idGame", async (req,res)=>{
     try {
         const id = req.params.id
         const idGame = req.params.idGame
 
         const user = await User.findByPk(id);
-    let pokedex = user.pokedex;
-    const index = pokedex.indexOf(idGame);
+        let favorite = user.favorite; 
+    const index = favorite.indexOf(idGame);
 
     if (index > -1) {
         pokedex.splice(index, 1);
-        await User.update({ pokedex }, { where: { id: id } });
+        await User.update({ favorite }, { where: { id: id } });
         res.status(200).send("Game removed");
     }else {
         res.status(404).send("Game not found");
@@ -82,7 +82,7 @@ router.put("/add/:id",async (req, res) => {
     } catch (error) {
         res.status(400).send(error);
     }
-} ) */
+} )
 router.get("/:id", async (req, res) => {
     try {
       const { id } = req.params;
@@ -99,7 +99,7 @@ router.get("/:id", async (req, res) => {
             favorites.push(game)
           }
         }
-        res.send({ ...user, favorites });
+        res.send({ ...user.dataValues, favorites });
       }
     } catch (error) {
       res.status(400).send(error);

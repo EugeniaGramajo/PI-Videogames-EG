@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios"
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import styles from "./styles/register.module.css"
 import { validatePassword, validateUsername } from "./validations";
 
 export default function Register(){
@@ -53,7 +54,12 @@ export default function Register(){
     console.log(form)
     return(
         <>
-        <div>
+        <div className={styles.container}>
+        <div className={styles.general}>
+            <div className={styles.backContainer}>
+                <Link  className={styles.back} to={"/home"}>Go back</Link>
+            </div>
+        
         <form onSubmit={submitHandler}>
 
            <label>Username: <input value={form.username} onChange={changeHandler} name="username" type="text" required></input></label> 
@@ -67,12 +73,12 @@ export default function Register(){
             {error.username && error.username}
             {error.password && error.password}
             
-           <label><input type="submit" value={"Sign up"} disabled={form.email !== confirm.email || form.password !== confirm.password || !form.username || !form.password || !form.email}></input></label> 
+           <label className={styles.labelInput}><input className={styles.submit} type="submit" value={"Sign up"} disabled={form.email !== confirm.email || form.password !== confirm.password || !form.username || !form.password || !form.email}></input></label> 
 
 
            
         </form>
-        </div>
+        </div></div>
         </>
     )
 }

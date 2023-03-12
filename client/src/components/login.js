@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import{ Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios"
-import { validateUser } from "../redux/actions";
+import { getUser, validateUser } from "../redux/actions";
 import { useHistory } from "react-router-dom";
+import styles from "./styles/register.module.css"
 
 
 export default function Login(){
@@ -27,13 +28,14 @@ export default function Login(){
             username: state.username,
             password: state.password
           })  
-          console.log(validation)
            if(validation.data.res==="User validated"){
             localStorage.setItem("user", state.username);
            dispatch(validateUser(validation.data.user.id))
-           console.log(user)
+
            navigate.push("/home")
-        }} catch(e){
+        }
+            dispatch(getUser(validation.data.user.id))
+    } catch(e){
             if(e.response.data === "Password incorrect"){
                 setError(error.password="" ,error.username="")
                 setError({...error, password: e.response.data})
@@ -50,7 +52,11 @@ export default function Login(){
 
     return(
         <>
-        <div >
+        <div className={styles.container}>
+        <div className={styles.general} >
+        <div className={styles.backContainer}>
+                <Link  className={styles.back} to={"/home"}>Go back</Link>
+            </div>
         <form onSubmit={submitHandler}>
             <h2>We miss you!</h2>
            <label>Username: <input value={state.username} name="username" 
@@ -62,13 +68,13 @@ export default function Login(){
            </label> 
           {error.password==="Password incorrect"? <p>Password incorrect</p> : ""}
           {error.username==="User not found"? <p>User not found</p> : ""}
-           <label><input type="submit" value={"Log in"}></input></label> 
+           <label className={styles.labelInput}><input className={styles.submit} type="submit" value={"Log in"}></input></label> 
 
 
            <h3> Do not have user? Register
-            <Link to={"/register"} > Here</Link></h3>
+            <Link className={styles.here} to={"/register"} > Here</Link></h3>
         </form>
-        </div>
+        </div></div>
         </>
     )
 }

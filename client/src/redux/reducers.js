@@ -1,7 +1,8 @@
+import { data } from "../components/Landing/data";
 import { ACTIVE_NAVBAR, CREATED, CURRENT_PAGE, 
   DETAIL_GAMES, 
   DETAIL_GAMES_IMAGES, 
-  GENRES_FILTER, GET_GENRES, GET_USERS, GET_VIDEOGAMES,
+  GENRES_FILTER, GET_GENRES, GET_RANDOM_GAMES, GET_USER, GET_USERS, GET_VIDEOGAMES,
    LOG_OUT,
    ORIGINAL, PAGINATION_GAMES, PLATFORMS, RATING, 
    SEARCH, 
@@ -14,10 +15,12 @@ const initialState = {
     paginationGames:[],
     genres:[],
     platforms: [],
-    user:{},
+    userId:"",
+    user:"",
     notFound: false,
     navbar: false,
     detailGame:{},
+    backgroundImages:[]
   };
   
   function reducer(state = initialState, action) {
@@ -108,6 +111,21 @@ const initialState = {
             ...state, 
             detailGame: action.payload
           }
+      case GET_RANDOM_GAMES:
+          const random = new Set()
+          while (random.size < 16) {
+            const randomIndex = Math.floor(Math.random() * data.length);
+            const game = data[randomIndex];
+            random.add(game);
+          }
+         const games = Array.from(random)
+      return{
+        ...state, backgroundImages:games
+      }
+      case GET_USER:
+        return{
+          ...state, user:action.payload
+        }
       default:
         return state;
     }

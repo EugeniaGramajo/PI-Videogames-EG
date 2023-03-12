@@ -73,7 +73,8 @@ console.log(details)
             <il>{plat.platform.name}</il>)}
     </div>
     <div>
-        <p>Released: {details.released}</p>
+      <h3>Released:</h3>
+        <p> {details.released}</p>
     </div>
     </div>
 <div className={styles.tag}>

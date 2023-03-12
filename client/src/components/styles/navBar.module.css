@@ -25,6 +25,8 @@
 .logo{
     display: flex;
     flex-direction: row;
+    color: aliceblue;
+    text-decoration: none;
 }
 
 .itemList div {
