@@ -26,7 +26,7 @@ export const getVideogames = () => async (dispatch) => {
     const response = await axios.get("/videogames");
     dispatch({
       type: GET_VIDEOGAMES,
-      payload: response.data,
+      payload: response,
       
     });
   } catch (error) {
@@ -53,7 +53,7 @@ export const getGenres = ()=> async (dispatch)=>{
     const genres = await axios.get("/genres")
     dispatch({
       type: GET_GENRES,
-      payload: genres.data
+      payload: genres
     })
   } catch(error) {
     console.log(error)
@@ -73,7 +73,7 @@ export const original = ()=> async (dispatch)=>{
       console.log("original data",data.data)
       dispatch({
         type: ORIGINAL,
-        payload: data.data
+        payload: data
       })
     } catch (error) {
       console.log(error)
@@ -86,7 +86,7 @@ export const created = ()=> async (dispatch)=>{
     console.log("createddata",data.data)
     dispatch({
       type: CREATED,
-      payload: data.data
+      payload: data
     })
   } catch (error) {
     console.log(error)
@@ -112,7 +112,7 @@ export const getPlatforms = () => async (dispatch)=>{
     const data = await axios.get("/platforms")
     dispatch({
       type: PLATFORMS,
-      payload: data.data
+      payload: data
     })
   } catch (error) {
     console.log(error)
@@ -124,7 +124,7 @@ export const getUsers = ()=> async (dispatch) =>{
     const res = await axios.get("/users")
     dispatch(
       {type:GET_USERS,
-      payload: res.data}
+      payload: res}
     )
   } catch (error) {
     console.log(error)
@@ -149,12 +149,12 @@ export const search = (search)=> async (dispatch) =>{
     const res = await axios.get(`/videogames?name=${search}`)
     dispatch(
       {type:SEARCH,
-      payload: res.data}
+      payload: res}
     )
   } catch (error) {
     dispatch({
       type:SEARCH,
-      payload: error.response.data
+      payload: error.response
     })
   }
 }
@@ -169,7 +169,7 @@ export const detailGame = (id) => async (dispatch)=>{
   try{const res = await axios.get(`/videogames/${id}`)
   dispatch(
     {type:DETAIL_GAMES,
-    payload: res.data}
+    payload: res}
   )} catch(error){
     console.log(error)
   }
@@ -186,7 +186,7 @@ export const getUser = (id)=>async (dispatch)=>{
  try{ const res = await axios.get(`/users/${id}`)
  dispatch({
     type:GET_USER,
-    payload: res.data
+    payload: res
   })}catch(error){
     console.log(error)
   }
