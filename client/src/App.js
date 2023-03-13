@@ -12,7 +12,7 @@ import Details from "./components/details";
 import Login from "./components/login";
 import Register from "./components/register"
 import axios from "axios";
-axios.defaults.baseURL = "https://pi-videogames-eg-production.up.railway.app/"
+axios.defaults.baseURL = "https://videogames-pi-eg.onrender.com/videogames"
 
 function App() {
   const dispatch = useDispatch();
