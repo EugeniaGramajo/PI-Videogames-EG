@@ -13,10 +13,12 @@ export default function Pagination() {
   const quantity = currentPageS * gamesPerPage;
   const firstPage = quantity - gamesPerPage;
   const games = showGames?.slice(firstPage, quantity);
+  const startButton = Math.max(1, currentPageS - 2);
+  const endButton = Math.min(totalPages, currentPageS + 2);
 
   useEffect(() => {
     dispatch(paginationGames(games));
-  }, [showGames,currentPageS]);
+  }, [showGames, currentPageS]);
 
   const prevHandler = () => {
     if (currentPageS === 1) {
@@ -35,19 +37,29 @@ export default function Pagination() {
 
   return (
     <>
-    <div className={styles.general}>
-      <div>
-        <button  className={styles.arrowleft} onClick={prevHandler}>{"<"}</button>{" "}
+      <div className={styles.general}>
+        <div>
+          <button className={styles.arrowleft} onClick={prevHandler}>
+            {"<"}
+          </button>{" "}
+        </div>
+        {Array.from({ length: 5 }, (_, index) => (
+          <button
+            className={`${styles.buttons} ${
+              startButton + index === currentPageS ? styles.active : ""
+            }`}
+            key={startButton + index}
+            onClick={() => dispatch(currentPage(startButton + index))}
+          >
+            {startButton + index}
+          </button>
+        ))}
+        <div>
+          <button className={styles.arrowright} onClick={nextHandler}>
+            {">"}
+          </button>
+        </div>
       </div>
-      {Array.from({ length: totalPages }, (_, index) => (
-        <button className={`${styles.buttons} ${currentPageS===index+1 ? styles.active : ""}`} key={index} onClick={() => dispatch(currentPage(index + 1))}>
-          {index + 1}
-        </button>
-      ))}
-      <div>
-        <button  className={styles.arrowright} onClick={nextHandler}>{">"}</button>
-      </div>
-    </div>
     </>
   );
 }

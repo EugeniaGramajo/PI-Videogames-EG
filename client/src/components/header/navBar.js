@@ -35,10 +35,10 @@ export default function NavBar(){
         <div className={styles.search}>
         <div className={styles.generalResponsive}>
             <ButtonMenu></ButtonMenu>
-        <div className={styles.logo}>
+            <Link to={"/"}> <div className={styles.logo}>
              <img src="https://i.imgur.com/5rqOtaZ.png" alt="logo"/>
             <h1>Henry</h1>   
-            </div>
+            </div></Link>
                     
        
         </div><div className={styles.search}> <Search></Search></div>

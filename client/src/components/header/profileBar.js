@@ -1,10 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logOut } from "../../redux/actions";
 import styles from "../styles/profileBar.module.css"
 
 export default function ProfileBar(){
-
+    const dispatch = useDispatch()
     const user = useSelector(state=>state.user)
     console.log(user)
     
@@ -17,6 +18,7 @@ export default function ProfileBar(){
         </div>
         <div className={user!== "" ? styles.profile : styles.active }>
             <div className={styles.profile}>Hi, {user?.username}!</div>
+            <div className={styles.logout} onClick={()=>dispatch(logOut())}>Log out</div>
         </div>
         </div>
         </>

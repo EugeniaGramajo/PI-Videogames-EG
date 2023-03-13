@@ -95,3 +95,9 @@ padding: 15px;
     display: flex;
     align-self: flex-start;
 }
+
+@media(max-width:940px){
+    .general{
+        width: 90%;
+    }
+}

@@ -77,8 +77,20 @@
 
 
 @media(max-width:550px){
+    .general{
+        background: radial-gradient( #213859,#1D2024);
+    }
     .presentation{
         width: 350px;
-        font-size: x-small;
+        font-size: small;
+        margin: auto;
+        padding-top: 120px;
     }
+    .gameCol{
+       display: none;
+    }
+    .landing{
+        background: none;
+    }
+    
 }
