@@ -11,10 +11,10 @@ export default function Genres (){
     useEffect(()=>{
         dispatch(getGenres())
     },[])
-    const filterHandler = async (e)=>{
-        await dispatch(getVideogames())
+    const filterHandler =  (e)=>{
+ dispatch(getVideogames())
          dispatch(filterGenres(e.target.value))
-         console.log(e.target.value)
+
      }  
      return(
          <>
