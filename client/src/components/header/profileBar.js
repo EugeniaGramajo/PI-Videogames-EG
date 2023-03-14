@@ -7,7 +7,6 @@ import styles from "../styles/profileBar.module.css"
 export default function ProfileBar(){
     const dispatch = useDispatch()
     const user = useSelector(state=>state.user)
-    console.log(user)
     
     return(
         <>

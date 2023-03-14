@@ -25,7 +25,6 @@ function App() {
     dispatch(getRandomGames())
   }, []);
 
-console.log(state)
   return (
     <div className="App">
       <Route exact path={"/"}>

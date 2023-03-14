@@ -10,7 +10,7 @@ import ProfileBar from "./profileBar";
 export default function NavBar(){
 
     const activeNavBar = useSelector(state=>state.navbar)
-    console.log(activeNavBar)
+
 
     return(
         <>
