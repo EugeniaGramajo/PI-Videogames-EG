@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     released: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRIN,
       allowNull:true
     },
     rating: {
@@ -32,7 +32,6 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.TEXT,
       allowNull: true,
-      defaultValue: "https://upload.wikimedia.org/wikipedia/commons/8/83/Android_TV_game_controller.jpg"
 }
   },
   {
