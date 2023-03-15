@@ -6,10 +6,7 @@ const postCustomVideogame = async (formData) => {
   const {
     name, summary, released, rating, genres, platforms, image
   } = formData
-  console.log(formData)
-  console.log("adsasdads",released)
-  const date = new Date(released)
-  console.log(date)
+
   if(!name || !summary || !platforms){
     throw  'Missing required information.'}
 
@@ -26,7 +23,7 @@ const postCustomVideogame = async (formData) => {
 
   }
   const newGame = await Videogame.create({
-    name, summary, released: date, rating, platforms, image: `http://localhost:3001/images/${imageName}`
+    name, summary, released, rating, platforms, image: `http://localhost:3001/images/${imageName}`
   })
   const allGenres = await getAllGenres();
   const filteredGenres = genres.map(genre => (
