@@ -1,6 +1,7 @@
 const { Videogame } = require('../db');
 const getAllGenres = require('./getAllGenres');
 const fs = require('fs');
+const getAllPlatforms = require('./getAllPlatforms');
 
 const postCustomVideogame = async (formData) => {
   const {
@@ -23,13 +24,18 @@ const postCustomVideogame = async (formData) => {
 
   }
   const newGame = await Videogame.create({
-    name, summary, released, rating, platforms, image: `http://localhost:3001/images/${imageName}`
+    name, summary, released, rating, image: `https://videogames-pi-eg.onrender.com/${imageName}`
   })
   const allGenres = await getAllGenres();
   const filteredGenres = genres.map(genre => (
     allGenres.find(g => g.name === genre)
   ))
+  const allPlatforms = await getAllPlatforms();
+  const filteredPlatforms = platforms.map(plat =>(
+    allPlatforms.find(p => p.name === plat)
+  ))
   newGame.addGenres(filteredGenres)
+  newGame.addPlatforms(filteredPlatforms)
   return {
     message: "New game added successfully!",
     game: newGame

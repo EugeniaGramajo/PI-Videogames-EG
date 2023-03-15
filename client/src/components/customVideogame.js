@@ -76,7 +76,7 @@ export default function CustomVideogame(){
         <form onSubmit={submitHandler}>
             <label> Name <input value={form.name} type="text" name="name" onChange={changeHandler}></input> </label>
             <label> Summary <input value={form.summary} type="text" name="summary" onChange={changeHandler}></input> </label>
-            <label> Realease <input value={form.released} type="date" name="realease" onChange={changeHandler}></input> </label>
+            <label> Realease <input value={form.released} type="date" name="released" onChange={changeHandler}></input> </label>
             <label> Rating <input value={form.rating} type="number" name="rating" onChange={changeHandler}></input> </label>
             <label> Platforms 
                 <select name="platforms" onChange={selectHandler}>
