@@ -11,7 +11,8 @@ const postCustomVideogame = async (formData) => {
   if(!name || !summary || !platforms){
     throw  'Missing required information.'}
 
-  const imageExtension = image?.substring("data:image/".length, image.indexOf(";base64"));
+    const imageExtension = image.substring(image.indexOf("/") + 1, image.indexOf(";base64"));
+
   const imageName = `${Date.now()}.${imageExtension}`;
   const imagePath = `./src/routes/public/images/${imageName}`;
   fs.writeFileSync(imagePath, image.substring(image.indexOf("base64,") + 7), 'base64');
