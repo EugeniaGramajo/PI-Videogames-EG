@@ -63,7 +63,7 @@ export default function CustomVideogame(){
           image: form.image, 
         };
         console.log(data)
-        axios.post("http://localhost:3001/videogames", data)
+        axios.post("/videogames", data)
           .then((response) => {
             console.log(response);})
           .catch((error) => {

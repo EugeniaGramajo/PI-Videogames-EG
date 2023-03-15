@@ -24,7 +24,7 @@ export default function Register(){
         setError(error.email= "", error.password= "" ,error.username= "")
         e.preventDefault()
         if(validateUsername(form.username)&& validatePassword(form.password)){
-             await axios.post("http://localhost:3001/users/create",{
+             await axios.post("/users/create",{
             username: form.username,
             email:form.email,
             password:form.password,

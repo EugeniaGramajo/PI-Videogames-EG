@@ -24,7 +24,7 @@ export default function Login(){
     const submitHandler = async (e)=>{
         e.preventDefault()
         try {
-          const validation = await axios.post("http://localhost:3001/users/validate",{
+          const validation = await axios.post("/users/validate",{
             username: state.username,
             password: state.password
           })  
