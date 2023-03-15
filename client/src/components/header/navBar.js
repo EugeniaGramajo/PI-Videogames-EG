@@ -2,15 +2,11 @@ import React from "react";
 import Search from "./search";
 import styles from "../styles/navBar.module.css"
 import ButtonMenu from "../header/buttonMobile"
-import { useSelector } from "react-redux";
 import MenuMobile from "./menuMobile";
 import { Link } from "react-router-dom";
 import ProfileBar from "./profileBar";
 
 export default function NavBar(){
-
-    const activeNavBar = useSelector(state=>state.navbar)
-
 
     return(
         <>

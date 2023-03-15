@@ -120,3 +120,8 @@
         width: 85%;
     }
 }
+
+.errors{
+    display: flex;
+    flex-direction: column;
+}

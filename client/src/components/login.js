@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import{ Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios"
 import { getUser, validateUser } from "../redux/actions";
 import { useHistory } from "react-router-dom";
@@ -10,7 +10,6 @@ import styles from "./styles/register.module.css"
 export default function Login(){
     const navigate = useHistory()
 
-    const user = useSelector(state=> state)
     const [state, setState] = useState({
         username: "",
         password:""

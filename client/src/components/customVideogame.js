@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios"
 import styles from "./styles/customVideogame.module.css"
 
+
 export default function CustomVideogame(){
 
     const dispatch = useDispatch()
@@ -10,6 +11,15 @@ export default function CustomVideogame(){
     const platforms = useSelector(state=> state.platforms)
     const [form, setForm]  = useState({
         name: "",
+        image: "",
+        summary: "",
+        platforms: [],
+        released: "",
+        rating: "",
+        genres: []
+    })
+    const [error, setError] = useState({
+        name:"",
         image: "",
         summary: "",
         platforms: [],
@@ -52,6 +62,38 @@ export default function CustomVideogame(){
 
       const submitHandler = (e) => {
         e.preventDefault();
+        setError({
+        name:"",
+        image: "",
+        summary: "",
+        platforms: [],
+        released: "",
+        rating: "",
+        genres: ""
+        })
+        if(!form.name){
+            setError({
+                ...error, name: "Name can't be empty"
+            })
+        }
+        if(form.name.length>20){
+            setError({
+                ...error, name: "Name can't have more than 20 characters"
+            })
+        }
+        if(form.summary.length < 10 || form.summary.length > 100){
+            setError({...error, summary: "Summary must be between 10 and 100 characters"})
+        }
+        if(form.platforms.length===0){
+            setError({
+                ...error, platforms: "Need to choose one at lease one platform"
+            })
+        }
+        if(form.rating<0||form.rating>5){
+            setError({
+                ...error, rating: "Rating need to be higher than 0 and lower than 5"
+            })
+        }
         const data = {
           name: form.name,
           summary: form.summary,
@@ -61,12 +103,9 @@ export default function CustomVideogame(){
           genres: form.genres,
           image: form.image, 
         };
-        axios.post("/videogames", data)
-          .then((response) => {
-            console.log(response);})
-          .catch((error) => {
-            console.log(error);
-          });
+        if(Object.values(error).every((value) => value === "")){
+            axios.post("/videogames", data)
+        };
     };
       
     return(
@@ -109,7 +148,13 @@ export default function CustomVideogame(){
                 }
             </div>
             <label> Image <input  type="file" name="image" onChange={imageHandler}></input> </label>
-            
+            <div className={styles.errors}>
+            <div>{error.name&&error.name}</div>
+            <div>{error.summary&&error.summary}</div>
+            <div>{error.platforms&&error.platforms}</div>
+            <div>{error.rating&&error.rating}</div>
+            </div>
+
              <input className={styles.submit} type="submit"></input> 
         </form></div>
         </>
