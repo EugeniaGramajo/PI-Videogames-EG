@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     released: {
-      type: DataTypes.STRIN,
+      type: DataTypes.STRING,
       allowNull:true
     },
     rating: {
