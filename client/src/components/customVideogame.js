@@ -17,7 +17,6 @@ export default function CustomVideogame(){
         rating: "",
         genres: []
     })
-    console.log(form)
     const deleteHandler = (e)=>{
         e.preventDefault()
         const filtered = form[e.target.name].filter(del=> del !== e.target.value )
@@ -62,7 +61,6 @@ export default function CustomVideogame(){
           genres: form.genres,
           image: form.image, 
         };
-        console.log(data)
         axios.post("/videogames", data)
           .then((response) => {
             console.log(response);})
