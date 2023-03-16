@@ -104,7 +104,7 @@ export default function CustomVideogame(){
         };
         console.log(data)
         if(Object.values(error).every((value) => value === "")){
-            axios.post("https://videogames-pi-eg.onrender.com//videogames", data)
+            axios.post("https://videogames-pi-eg.onrender.com/videogames", data)
             .then(response =>{ alert(response.data.message)
                 console.log(response)
                 setForm({
