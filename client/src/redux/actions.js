@@ -72,7 +72,6 @@ export const filterGenres = (payload)=>{
 export const original = ()=> async (dispatch)=>{
     try {
       const data = await axios.get("/videogames/api")
-      console.log("original data",data.data)
       dispatch({
         type: ORIGINAL,
         payload: data.data
@@ -85,7 +84,6 @@ export const original = ()=> async (dispatch)=>{
 export const created = ()=> async (dispatch)=>{
   try {
     const data = await axios.get("/videogames/db")
-    console.log("createddata",data.data)
     dispatch({
       type: CREATED,
       payload: data.data

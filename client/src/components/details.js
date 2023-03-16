@@ -35,7 +35,6 @@ export default function Details() {
     }
     
   };
-console.log(details)
   return (
     <>
       <div className={styles.general}>

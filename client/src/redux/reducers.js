@@ -42,7 +42,7 @@ const initialState = {
         }
       case GENRES_FILTER:
           const genre = state.showGames.filter(game => {
-            return game.genres.some(genre => genre.name === action.payload);
+            return game.genres? game.genres.some(genre => genre.name === action.payload) : game.Genres.some(genre => genre.name === action.payload);
           })
           if(genre.length===0){
             return{

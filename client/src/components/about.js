@@ -21,7 +21,7 @@ export default function About(){
 
         
         <div className={styles.portfolio}>
-            <a href="https://eugeniagramajo.vercel.app/">Check my portfolio!</a>
+            <a  href="https://eugeniagramajo.vercel.app/" target="_blank">Check my portfolio!</a>
         </div>
         </div></div>
         </>

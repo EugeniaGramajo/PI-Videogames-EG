@@ -16,8 +16,8 @@ export default function Rating() {
         <option disabled selected>
           Order by rating
         </option>
-        <option value="asc">Better rated</option>
-        <option value="des">Worst rated</option>
+        <option value="asc">Worst rated</option>
+        <option value="des">Better rated</option>
       </select>
     </>
   );
