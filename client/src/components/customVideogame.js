@@ -52,7 +52,6 @@ export default function CustomVideogame(){
     const imageHandler = async (e) => {
         const file = e.target.files[0];
         setForm({...form, image: await uploadImage(file)})
-         console.log(await uploadImage(file), file, "datos")
       };
 
       async function uploadImage (file) {
@@ -108,12 +107,10 @@ export default function CustomVideogame(){
           genres: form.genres,
           image: form.image, 
         };
-        console.log(data)
 
         if(Object.values(error).every((value) => value === "")){
             axios.post("https://videogames-pi-eg.onrender.com/videogames", data)
             .then(response =>{ alert(response.data.message)
-                console.log(response)
                 setForm({
         name: "",
         image: "",

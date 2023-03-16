@@ -39,7 +39,7 @@ console.log(details)
   return (
     <>
       <div className={styles.general}>
-        <h1>{details.name}</h1>
+        <h1>{details?.name}</h1>
     <div className={styles.imgsum}>
         <div>
          <img src={currentImage} alt={details.name}></img>
@@ -47,10 +47,10 @@ console.log(details)
             <p>Rating: {details.rating}</p> 
             <p>ID: {details.id}</p>  
           </div>
-          <div>
+          {<div>
            <p>WebPage:</p>
             {details.webpage? <a href={details.webpage}>{details.webpage}</a> : <p>This game do not have a webpage</p>}  
-         </div>
+         </div>}
           
         </div>
         
@@ -68,7 +68,7 @@ console.log(details)
     <div>
         <h3>Platforms:</h3>
         {details.platform?.map(plat=>
-            <il>{plat.platform.name}</il>)}
+            <il>{plat.platform?.name}</il>)}
     </div>
     <div>
       <h3>Released:</h3>
@@ -77,7 +77,7 @@ console.log(details)
     </div>
 <div className={styles.tag}>
     {details.tags?.map(tag=>
-        <il>{tag.name}</il>)}
+        <il>{tag?.name}</il>)}
 </div>
       </div>
     </>
