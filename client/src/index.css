@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: 'Quicksand', 'Raleway', sans-serif;
   color: aliceblue;
+  min-height: 100vh;
 }
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

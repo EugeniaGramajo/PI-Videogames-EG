@@ -54,11 +54,11 @@ const initialState = {
         }}
       case ORIGINAL:
         return{
-          ...state, showGames: action.payload
+          ...state, showGames: action.payload, currentPage: 1
         }
       case CREATED:
         return{
-          ...state, showGames: action.payload
+          ...state, showGames: action.payload, currentPage: 1
         }
       case RATING:
         const ordered = action.payload === "asc" 

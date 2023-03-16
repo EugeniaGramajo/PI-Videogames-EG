@@ -12,6 +12,8 @@ import Details from "./components/details";
 import Login from "./components/login";
 import Register from "./components/register"
 import axios from "axios";
+import Footer from "./components/footer";
+import About from "./components/about";
 axios.defaults.baseURL = "https://videogames-pi-eg.onrender.com/"
 
 function App() {
@@ -31,14 +33,17 @@ function App() {
       <Route exact path={"/home"}>
         <NavBar></NavBar>
         <Cards></Cards>
+        <Footer></Footer>
       </Route>
       <Route exact path={"/create"}>
         <NavBar></NavBar>
         <CustomVideogame></CustomVideogame>
+
       </Route>
       <Route exact path={"/videogames/:id"}>
         <NavBar></NavBar>
           <Details></Details>
+          <Footer></Footer>
       </Route>
       <Route exact path={"/login"}>
         <Login></Login>
@@ -46,6 +51,12 @@ function App() {
       <Route exact path={"/register"}>
         <Register></Register>
       </Route>
+      <Route exact path={"/about"}>
+      <NavBar></NavBar>
+        <About></About>
+        <Footer></Footer>
+      </Route>
+
     </div>
   );
 }

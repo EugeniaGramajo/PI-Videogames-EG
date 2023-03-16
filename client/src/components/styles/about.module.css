@@ -1,0 +1,32 @@
+.div{
+    height: 70vh;
+}
+.general{
+    margin: auto;
+    margin-top: 50px;
+    width: 55%;
+    background: #2d6989;
+    padding: 35px;
+    border-radius: 2px;
+}
+.general p {
+    width: 75%;
+    margin: auto;
+}
+.portfolio{
+    margin-top: 40px;
+}
+.portfolio a {
+    margin: 30px;
+    background: #1A293E;
+    padding: 5px;
+    border-radius: 2px;
+    text-shadow: 0 0 5px #fff;
+    font-weight: 600;
+}
+.portfolio a:hover{
+    background: #5ea2c7;
+    color: black;
+    text-shadow: 0 0 5px #000000;
+    font-weight: 900;
+}
