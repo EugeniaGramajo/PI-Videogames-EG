@@ -6,7 +6,6 @@ import styles from "./styles/customVideogame.module.css"
 
 export default function CustomVideogame(){
 
-    const dispatch = useDispatch()
     const genres = useSelector(state=> state.genres)
     const platforms = useSelector(state=> state.platforms)
     const [form, setForm]  = useState({

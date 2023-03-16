@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { copyGames, filterGenres, getGenres, getVideogames } from "../../../redux/actions";
+import { copyGames, filterGenres} from "../../../redux/actions";
 import styles from "../../styles/filters.module.css"
 
 export default function Genres (){

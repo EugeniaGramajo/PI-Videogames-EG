@@ -16,8 +16,6 @@ axios.defaults.baseURL = "https://videogames-pi-eg.onrender.com/"
 
 function App() {
   const dispatch = useDispatch();
-  const state = useSelector(state=>state)
-
   useEffect(() => {
     dispatch(getVideogames());
     dispatch(getGenres());

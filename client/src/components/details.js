@@ -8,7 +8,6 @@ export default function Details() {
     
   const { id } = useParams();
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
   const details = useSelector((state) => state.detailGame);
   const [currentImage, setCurrentImage] = useState("")
   useEffect(() => {
@@ -17,7 +16,6 @@ export default function Details() {
   useEffect(() => {
     if (details.image2) {
       setCurrentImage(details.image);
-      setIsLoading(false);
     }else{
         setCurrentImage(details.image)
     }

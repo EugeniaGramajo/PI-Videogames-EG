@@ -19,7 +19,8 @@ const initialState = {
     notFound: false,
     navbar: false,
     detailGame:{},
-    backgroundImages:[]
+    backgroundImages:[],
+    genreFilter: true,
   };
   
   function reducer(state = initialState, action) {
@@ -42,9 +43,14 @@ const initialState = {
           const genre = state.showGames.filter(game => {
             return game.genres.some(genre => genre.name === action.payload);
           })
+          if(genre.length===0){
+            return{
+              ...state, genreFilter: false,
+            }
+          }else{
         return{
-          ...state, showGames: genre
-        }
+          ...state, showGames: genre, genreFilter:true
+        }}
       case ORIGINAL:
         return{
           ...state, showGames: action.payload
