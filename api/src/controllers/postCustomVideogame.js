@@ -7,20 +7,8 @@ const postCustomVideogame = async (formData) => {
     name, summary, released, rating, genres, platform, image
   } = formData
 
- 
-
   if(!name || !summary || !platform){
     throw  'Missing required information.'}
-
-    const dir = './public/images';
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-
- const imageExtension = image?.substring("data:image/".length, image.indexOf(";base64"));
-  const imageName = `${Date.now()}.${imageExtension}`;
-  const imagePath = `./src/routes/public/images/${imageName}`;
-  fs.writeFileSync(imagePath, image.substring(image.indexOf("base64,") + 7), 'base64');
 
   const gameAlreadyExist = await Videogame.findOne({
     where:{ name }
@@ -31,8 +19,7 @@ const postCustomVideogame = async (formData) => {
 
   }
   const newGame = await(image.length!==0? Videogame.create({
-    name, summary, released, rating, platform, image: `https://videogames-pi-eg.onrender.com/images/${imageName}`
-  }) : Videogame.create({
+    name, summary, released, rating, platform, image  }) : Videogame.create({
     name, summary, released, rating, platform, image: "https://www.sportsgamersonline.com/wp-content/uploads/2022/07/PC-Gaming.png"
   }) )
 

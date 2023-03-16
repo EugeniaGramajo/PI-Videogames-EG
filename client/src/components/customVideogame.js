@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios"
 import styles from "./styles/customVideogame.module.css"
 
@@ -49,15 +49,21 @@ export default function CustomVideogame(){
         e.preventDefault()
         setForm({...form, [e.target.name] : e.target.value})
     }
-    const imageHandler = (e) => {
+    const imageHandler = async (e) => {
         const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(file); 
-        reader.onload = (event) => {
-          const base64 = event.target.result;
-          setForm({ ...form, image: base64 }); 
-        };
+        setForm({...form, image: await uploadImage(file)})
+         console.log(await uploadImage(file), file, "datos")
       };
+
+      async function uploadImage (file) {
+        const body = {
+          UPLOADCARE_PUB_KEY: "846a3d406b9aba0029a9",
+          file,
+        };
+      
+        const {data} = await axios.postForm("https://upload.uploadcare.com/base/", body)
+        return `https://ucarecdn.com/${data.file}/`
+      }
 
       const submitHandler = (e) => {
         e.preventDefault();
@@ -103,6 +109,7 @@ export default function CustomVideogame(){
           image: form.image, 
         };
         console.log(data)
+
         if(Object.values(error).every((value) => value === "")){
             axios.post("https://videogames-pi-eg.onrender.com/videogames", data)
             .then(response =>{ alert(response.data.message)
@@ -120,7 +127,7 @@ export default function CustomVideogame(){
             .catch(console.error(error))
         };
     };
-      
+      console.log(form)
     return(
         <>
         <div className={styles.general}>
