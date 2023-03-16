@@ -13,8 +13,6 @@ export default function Pagination() {
   const quantity = currentPageS * gamesPerPage;
   const firstPage = quantity - gamesPerPage;
   const games = showGames?.slice(firstPage, quantity);
-  const startButton = Math.max(1, currentPageS - 2);
-  const endButton = Math.min(totalPages, currentPageS + 2);
 
   useEffect(() => {
     dispatch(paginationGames(games));
@@ -35,6 +33,21 @@ export default function Pagination() {
     }
   };
 
+  const startButton = currentPageS <= 3 ? 1 : currentPageS - 2;
+  const buttonsToShow = Math.min(totalPages - startButton + 1, 5);
+
+  const buttons = Array.from({ length: buttonsToShow }, (_, index) => (
+    <button
+      className={`${styles.buttons} ${
+        startButton + index === currentPageS ? styles.active : ""
+      }`}
+      key={startButton + index}
+      onClick={() => dispatch(currentPage(startButton + index))}
+    >
+      {startButton + index}
+    </button>
+  ));
+
   return (
     <>
       <div className={styles.general}>
@@ -43,17 +56,9 @@ export default function Pagination() {
             {"<"}
           </button>{" "}
         </div>
-        {Array.from({ length: 5 }, (_, index) => (
-          <button
-            className={`${styles.buttons} ${
-              startButton + index === currentPageS ? styles.active : ""
-            }`}
-            key={startButton + index}
-            onClick={() => dispatch(currentPage(startButton + index))}
-          >
-            {startButton + index}
-          </button>
-        ))}
+
+        {buttons}
+
         <div>
           <button className={styles.arrowright} onClick={nextHandler}>
             {">"}

@@ -50,7 +50,7 @@ const initialState = {
             }
           }else{
         return{
-          ...state, showGames: genre, genreFilter:true
+          ...state, showGames: genre, genreFilter:true, currentPage: 1
         }}
       case ORIGINAL:
         return{
@@ -138,7 +138,7 @@ const initialState = {
         }
       case RESET:
         return{
-          ...state, genreFilter: true
+          ...state, genreFilter: true, showGames: []
         }
       default:
         return state;
