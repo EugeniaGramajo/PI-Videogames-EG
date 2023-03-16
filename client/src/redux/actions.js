@@ -20,6 +20,7 @@ export const GET_RANDOM_GAMES = "GET_RANDOM_GAMES"
 export const ADD_FAVORITE = "ADD_FAVORITE"
 export const FILTERS = "FILTERS"
 export const COPY_GAMES = "COPY_GAMES"
+export const RESET = "RESET"
 
 
 export const getVideogames = () => async (dispatch) => {
@@ -199,3 +200,8 @@ export const copyGames = ()=>{
   }
 }
 
+export const reset = () => {
+  return{
+    type: RESET
+  }
+}

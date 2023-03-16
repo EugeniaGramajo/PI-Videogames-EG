@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { currentPage, getVideogames, search } from "../../redux/actions";
+import { currentPage, getVideogames, reset, search } from "../../redux/actions";
 import styles from "../styles/search.module.css"
 import { useHistory } from 'react-router-dom';
 
@@ -19,6 +19,8 @@ export default function Search (){
     }
     const resetHandler = ()=>{
         dispatch(getVideogames())
+        dispatch(reset())
+        dispatch(currentPage(1))
         history.push('/home')
     }
 

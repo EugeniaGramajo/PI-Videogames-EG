@@ -4,6 +4,7 @@ import { ACTIVE_NAVBAR, COPY_GAMES, CREATED, CURRENT_PAGE,
   GENRES_FILTER, GET_GENRES, GET_RANDOM_GAMES, GET_USER, GET_USERS, GET_VIDEOGAMES,
    LOG_OUT,
    ORIGINAL, PAGINATION_GAMES, PLATFORMS, RATING, 
+   RESET, 
    SEARCH, 
    SORT, 
    VALIDATE_USER} from "./actions";
@@ -134,6 +135,10 @@ const initialState = {
       case COPY_GAMES:
         return {
           ...state, showGames: state.copy
+        }
+      case RESET:
+        return{
+          ...state, genreFilter: true
         }
       default:
         return state;
