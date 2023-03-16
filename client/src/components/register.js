@@ -37,7 +37,7 @@ export default function Register(){
                 setError({...error, password: "Password should have at least an upper case, an lower case and a number"})
             }
             if(!validateUsername(form.username)){
-                setError({...error, username:"Username should be in lowercase and special characters are not allowed"})
+                setError({...error, username:"Username should be in lowercase, be shorter than 10 characters and special characters are not allowed"})
             }
         }
         
