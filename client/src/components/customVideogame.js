@@ -66,7 +66,7 @@ export default function CustomVideogame(){
         name:"",
         image: "",
         summary: "",
-        platforms: [],
+        platforms: "",
         released: "",
         rating: "",
         genres: ""
@@ -103,8 +103,11 @@ export default function CustomVideogame(){
           genres: form.genres,
           image: form.image, 
         };
+        console.log(data)
         if(Object.values(error).every((value) => value === "")){
-            axios.post("/videogames", data)
+            axios.post("http://localhost:3001/videogames", data)
+            .then(response => console.log(response.data))
+            .catch(console.error(error))
         };
     };
       

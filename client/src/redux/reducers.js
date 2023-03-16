@@ -1,5 +1,5 @@
 import { data } from "../components/Landing/data";
-import { ACTIVE_NAVBAR, CREATED, CURRENT_PAGE, 
+import { ACTIVE_NAVBAR, COPY_GAMES, CREATED, CURRENT_PAGE, 
   DETAIL_GAMES, 
   GENRES_FILTER, GET_GENRES, GET_RANDOM_GAMES, GET_USER, GET_USERS, GET_VIDEOGAMES,
    LOG_OUT,
@@ -10,23 +10,22 @@ import { ACTIVE_NAVBAR, CREATED, CURRENT_PAGE,
 
 const initialState = {
     showGames : [],
+    copy:[],
     currentPage: 1,
     paginationGames:[],
     genres:[],
     platforms: [],
-    userId:"",
     user:"",
     notFound: false,
     navbar: false,
     detailGame:{},
-    filters:[],
     backgroundImages:[]
   };
   
   function reducer(state = initialState, action) {
     switch (action.type) {
       case GET_VIDEOGAMES:
-        return {...state, showGames: action.payload, notFound:false}
+        return {...state, showGames: action.payload, copy:action.payload, notFound:false}
       case CURRENT_PAGE:
         return{
           ...state, currentPage:action.payload
@@ -125,6 +124,10 @@ const initialState = {
       case GET_USER:
         return{
           ...state, user:action.payload
+        }
+      case COPY_GAMES:
+        return {
+          ...state, showGames: state.copy
         }
       default:
         return state;

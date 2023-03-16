@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterGenres, getGenres, getVideogames } from "../../../redux/actions";
+import { copyGames, filterGenres, getGenres, getVideogames } from "../../../redux/actions";
 import styles from "../../styles/filters.module.css"
 
 export default function Genres (){
@@ -8,11 +8,8 @@ export default function Genres (){
     const dispatch = useDispatch()
     const genres = useSelector(state => state.genres)
 
-    useEffect(()=>{
-        dispatch(getGenres())
-    },[])
     const filterHandler =  (e)=>{
- dispatch(getVideogames())
+         dispatch(copyGames())
          dispatch(filterGenres(e.target.value))
 
      }  

@@ -19,6 +19,7 @@ export const DETAIL_GAMES = "DETAIL_GAME"
 export const GET_RANDOM_GAMES = "GET_RANDOM_GAMES"
 export const ADD_FAVORITE = "ADD_FAVORITE"
 export const FILTERS = "FILTERS"
+export const COPY_GAMES = "COPY_GAMES"
 
 
 export const getVideogames = () => async (dispatch) => {
@@ -189,6 +190,12 @@ export const getUser = (id)=>async (dispatch)=>{
     payload: res.data
   })}catch(error){
     console.log(error)
+  }
+}
+
+export const copyGames = ()=>{
+  return{
+    type: COPY_GAMES
   }
 }
 
