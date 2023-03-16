@@ -86,7 +86,9 @@ padding: 15px;
 .back:hover{
     scale: 1.15;
 }
-
+.here{
+    text-shadow: 0 0 5px #fff;
+}
 .here:hover{
     color: #06BEFF;
 }
