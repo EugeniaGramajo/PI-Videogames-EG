@@ -12,6 +12,11 @@ const postCustomVideogame = async (formData) => {
   if(!name || !summary || !platform){
     throw  'Missing required information.'}
 
+    const dir = './public/images';
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+
  const imageExtension = image?.substring("data:image/".length, image.indexOf(";base64"));
   const imageName = `${Date.now()}.${imageExtension}`;
   const imagePath = `./src/routes/public/images/${imageName}`;
