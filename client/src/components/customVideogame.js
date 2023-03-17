@@ -22,10 +22,10 @@ export default function CustomVideogame(){
         name:"",
         image: "",
         summary: "",
-        platforms: [],
+        platforms: "",
         released: "",
         rating: "",
-        genres: []
+        genres: ""
     })
     const deleteHandler = (e)=>{
         e.preventDefault()
@@ -109,7 +109,7 @@ export default function CustomVideogame(){
             .then(response =>{ alert(response.data.message)
                 resetForm()
             })
-            .catch(alert("An error has occurred, press F5 and try again"))
+            .catch(alert("An error has occurred, try again"))
         };}
     
       console.log(form)
