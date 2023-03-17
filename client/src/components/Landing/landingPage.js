@@ -11,6 +11,7 @@ export default function LandingPage (){
      
     return (
         <>
+
         <div className={styles.general}>
         <div className={styles.landing} >
             <div className={`${styles.left} ${styles.gameCol}`}>

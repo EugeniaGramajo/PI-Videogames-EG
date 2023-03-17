@@ -1,7 +1,10 @@
+
 .general{
     min-width: 100vw;
     min-height: 100vh;
     color: aliceblue;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .landing {
     max-height: 100vw;
@@ -76,7 +79,7 @@
 
 
 
-@media(max-width:550px){
+@media(max-width:920px){
     .general{
         background: radial-gradient( #213859,#1D2024);
     }
