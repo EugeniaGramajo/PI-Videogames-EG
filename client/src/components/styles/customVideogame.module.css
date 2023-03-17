@@ -115,6 +115,14 @@
     transform: scale(1.1);
 }
 
+.error{
+    color: #9f2323;
+    font-weight: 600;
+    text-shadow: 0 0px 5px #9f2323;
+    margin: 7px;
+}
+
+
 
 @media(max-width:940px){
     .general{
@@ -122,7 +130,7 @@
     }
 }
 
-.errors{
+.error{
     display: flex;
     flex-direction: column;
 }

@@ -113,15 +113,19 @@ export default function CustomVideogame(){
         };}
     
       console.log(form)
-    return(
+       return(
         <>
         <div className={styles.general}>
             <h1>Create a videogame</h1>
         <form onSubmit={submitHandler}>
             <label> Name <input value={form.name} type="text" name="name" onChange={changeHandler}></input> </label>
+            <div className={styles.error}>{error.name&&error.name}</div>
             <label> Summary <input value={form.summary} type="text" name="summary" onChange={changeHandler}></input> </label>
+            <div className={styles.error}>{error.summary&&error.summary}</div>
             <label> Realease <input value={form.released} type="date" name="released" onChange={changeHandler}></input> </label>
+            <div className={styles.error}>{error.released&&error.released}</div>
             <label> Rating <input value={form.rating} type="number" name="rating" onChange={changeHandler}></input> </label>
+            <div className={styles.error}>{error.rating&&error.rating}</div>
             <label> Platforms 
                 <select name="platforms" onChange={selectHandler}>
                     <option disabled selected> Choose platforms</option>
@@ -129,6 +133,7 @@ export default function CustomVideogame(){
                         <option value={platform.name} key={platform.id}>{platform.name}</option>)}
                 </select>
                  </label>
+                 <div className={styles.error}>{error.platforms&&error.platforms}</div>
             <div className={styles.div}>
                 {
                     form.platforms.map(platform =>
@@ -144,6 +149,7 @@ export default function CustomVideogame(){
                         <option value={genre.name} key={genre.id}>{genre.name}</option>)}
                 </select>
                  </label>
+                 <div className={styles.error}>{error.genres&&error.genres}</div>
             <div className={styles.div}>
                 {
                     form.genres.map(genre=>
@@ -153,14 +159,6 @@ export default function CustomVideogame(){
                 }
             </div>
             <label> Image <input  type="file" name="image" onChange={imageHandler}></input> </label>
-            <div className={styles.errors}>
-            <div>{error.name&&error.name}</div>
-            <div>{error.summary&&error.summary}</div>
-            <div>{error.platforms&&error.platforms}</div>
-            <div>{error.rating&&error.rating}</div>
-            <div>{error.genres&&error.genres}</div>
-            <div>{error.released&&error.released}</div>
-            </div>
 
              <input className={styles.submit} type="submit"></input> 
         </form></div>
