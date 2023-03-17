@@ -30,3 +30,13 @@
     text-shadow: 0 0 5px #000000;
     font-weight: 900;
 }
+
+
+@media(max-width:600px){
+    .general{
+        width: 85%;
+    }
+    .general p{
+        width: 85%;
+    }
+}

@@ -13,7 +13,7 @@ export default function About(){
             <h1>Thanks for visit my project!</h1>
             <p>I created a website as an individual project for Henry that incorporates various functionalities, such as filtering, searching, and image uploading. 
                 This project was built using pure CSS, React, Redux, Node, Express, and Sequelize. It was deployed on both Railway and Vercel, and it took me three 
-                weeks to complete. I am thrilled with the result and hope that people will enjoy using it.</p>
+                weeks to complete. I am thrilled with the result and hope that people will see what I am able to do.</p>
 
             
 
