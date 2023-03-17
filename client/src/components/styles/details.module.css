@@ -1,3 +1,11 @@
+.div{
+    min-height: 940px;
+    width: 50%;
+    padding-top: 100px;
+    margin: auto;
+    padding-right: 5%;
+
+}
 .general{
     background-color: #32353C;
     width: 800px;

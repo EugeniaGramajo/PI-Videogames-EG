@@ -21,6 +21,7 @@ export const ADD_FAVORITE = "ADD_FAVORITE"
 export const FILTERS = "FILTERS"
 export const COPY_GAMES = "COPY_GAMES"
 export const RESET = "RESET"
+export const RESET_DETAIL = "RESET_DETAIL"
 
 
 export const getVideogames = () => async (dispatch) => {
@@ -201,5 +202,11 @@ export const copyGames = ()=>{
 export const reset = () => {
   return{
     type: RESET
+  }
+}
+
+export const restetDetail = ()=>{
+  return{
+    type: RESET_DETAIL
   }
 }

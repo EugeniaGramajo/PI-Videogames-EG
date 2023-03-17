@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios"
 import styles from "./styles/customVideogame.module.css"
+import { validateDate, validateGenres, validateName, validatePlatforms, validateRating, validateReleaseDate, validateSummary } from "./validations";
 
 
 export default function CustomVideogame(){
@@ -51,8 +52,25 @@ export default function CustomVideogame(){
     }
     const imageHandler = async (e) => {
         const file = e.target.files[0];
-        setForm({...form, image: await uploadImage(file)})
+        if (!file.type.startsWith('image/')){
+            alert("File must be an Image!!")
+            e.target.value=""
+        }else{
+           setForm({...form, image: await uploadImage(file)}) 
+        }
+        
       };
+    const resetForm = ()=>{
+        setForm({
+            name: "",
+            image: "",
+            summary: "",
+            platforms: [],
+            released: "",
+            rating: "",
+            genres: []
+                    })
+    }
 
       async function uploadImage (file) {
         const body = {
@@ -64,7 +82,7 @@ export default function CustomVideogame(){
         return `https://ucarecdn.com/${data.file}/`
       }
 
-      const submitHandler = (e) => {
+      const submitHandler = async (e) => {
         e.preventDefault();
         setError({
         name:"",
@@ -75,55 +93,25 @@ export default function CustomVideogame(){
         rating: "",
         genres: ""
         })
-        if(!form.name){
-            setError({
-                ...error, name: "Name can't be empty"
-            })
-        }
-        if(form.name.length>20){
-            setError({
-                ...error, name: "Name can't have more than 20 characters"
-            })
-        }
-        if(form.summary.length < 10 || form.summary.length > 100){
-            setError({...error, summary: "Summary must be between 10 and 100 characters"})
-        }
-        if(form.platforms.length===0){
-            setError({
-                ...error, platforms: "Need to choose one at lease one platform"
-            })
-        }
-        if(form.rating<0||form.rating>5){
-            setError({
-                ...error, rating: "Rating need to be higher than 0 and lower than 5"
-            })
-        }
-        const data = {
-          name: form.name,
-          summary: form.summary,
-          platform: form.platforms,
-          released: form.released,
-          rating: form.rating,
-          genres: form.genres,
-          image: form.image, 
-        };
+        const nameError = validateName(form.name)
+        const summaryError = validateSummary(form.summary)
+        const platformError = validatePlatforms(form.platforms)
+        const ratingError = validateRating(form.rating)
+        const releaseError = validateReleaseDate(form.released)
+        const genresError = validateGenres(form.genres)
+        const dateError = validateDate(form.released)
+
+        setError({name:nameError, summary: summaryError, platforms:platformError, rating: ratingError,
+        released:releaseError, genres: genresError, released: dateError})
 
         if(Object.values(error).every((value) => value === "")){
-            axios.post("https://videogames-pi-eg.onrender.com/videogames", data)
+          await  axios.post("/videogames", {name: form.name,summary: form.summary,platform: form.platforms,released: form.released,rating: form.rating,genres: form.genres,image: form.image} )
             .then(response =>{ alert(response.data.message)
-                setForm({
-        name: "",
-        image: "",
-        summary: "",
-        platforms: [],
-        released: "",
-        rating: "",
-        genres: []
-                })
+                resetForm()
             })
-            .catch(console.error(error))
-        };
-    };
+            .catch(alert("An error has occurred, press F5 and try again"))
+        };}
+    
       console.log(form)
     return(
         <>
@@ -170,6 +158,8 @@ export default function CustomVideogame(){
             <div>{error.summary&&error.summary}</div>
             <div>{error.platforms&&error.platforms}</div>
             <div>{error.rating&&error.rating}</div>
+            <div>{error.genres&&error.genres}</div>
+            <div>{error.released&&error.released}</div>
             </div>
 
              <input className={styles.submit} type="submit"></input> 

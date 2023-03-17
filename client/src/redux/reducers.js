@@ -5,6 +5,7 @@ import { ACTIVE_NAVBAR, COPY_GAMES, CREATED, CURRENT_PAGE,
    LOG_OUT,
    ORIGINAL, PAGINATION_GAMES, PLATFORMS, RATING, 
    RESET, 
+   RESET_DETAIL, 
    SEARCH, 
    SORT, 
    VALIDATE_USER} from "./actions";
@@ -19,7 +20,7 @@ const initialState = {
     user:"",
     notFound: false,
     navbar: false,
-    detailGame:{},
+    detailGame:"",
     backgroundImages:[],
     genreFilter: true,
   };
@@ -139,6 +140,10 @@ const initialState = {
       case RESET:
         return{
           ...state, genreFilter: true, showGames: []
+        }
+      case RESET_DETAIL:
+        return{
+          ...state, detailGame:""
         }
       default:
         return state;

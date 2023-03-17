@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { detailGame } from "../redux/actions";
+import { detailGame, restetDetail } from "../redux/actions";
+import Loading from "./loading";
 import styles from "./styles/details.module.css";
 
 export default function Details() {
@@ -9,8 +10,10 @@ export default function Details() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const details = useSelector((state) => state.detailGame);
+  console.log(details)
   const [currentImage, setCurrentImage] = useState("")
   useEffect(() => {
+    dispatch(restetDetail())
     dispatch(detailGame(id));
   }, []);
   useEffect(() => {
@@ -37,7 +40,7 @@ export default function Details() {
   };
   return (
     <>
-      <div className={styles.general}>
+{  details.length===0 ? <div className={styles.div}><Loading></Loading></div> :   <div className={styles.general}>
         <h1>{details?.name}</h1>
     <div className={styles.imgsum}>
         <div>
@@ -67,7 +70,7 @@ export default function Details() {
     <div>
         <h3>Platforms:</h3>
         {details.platform?.map(plat=>
-            <il>{plat.platform?.name}</il>)}
+            <il>{plat.platform?.name? plat.platform?.name : plat}</il>)}
     </div>
     <div>
       <h3>Released:</h3>
@@ -78,7 +81,7 @@ export default function Details() {
     {details.tags?.map(tag=>
         <il>{tag?.name}</il>)}
 </div>
-      </div>
+      </div>}
     </>
   );
 }

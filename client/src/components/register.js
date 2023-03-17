@@ -51,7 +51,6 @@ export default function Register(){
         setConfirm({...confirm,[e.target.name]:e.target.value})
     }
     
-    console.log(form)
     return(
         <>
         <div className={styles.container}>
