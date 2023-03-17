@@ -54,9 +54,9 @@ router.post("/create", async (req,res) => {
 router.put("/add/:id",async (req, res) => {
     try {
       const favorites = req.body.favorites
-      const user = req.params
-    
-      User.update({favorites:favorites},{where:user})
+      const id = req.params.id
+
+      User.update({favorites:favorites},{ where: { id: id } })
       res.status(200).send("Update success")
     
     } catch (error) {
@@ -64,25 +64,25 @@ router.put("/add/:id",async (req, res) => {
     }
     })
 router.delete("/:id/videogames/:idGame", async (req,res)=>{
-      try {
-          const id = req.params.id
-          const idGame = req.params.idGame
-  
-          const user = await User.findByPk(id);
-          let favorite = user.favorite; 
-      const index = favorite.indexOf(idGame);
-  
-      if (index > -1) {
-          favorite.splice(index, 1);
-          await User.update({ favorite }, { where: { id: id } });
-          res.status(200).send("Game removed");
-      }else {
-          res.status(404).send("Game not found");
-        }
-      } catch (error) {
-          res.status(400).send(error);
+    try {
+        const id = req.params.id
+        const idGame = req.params.idGame
+
+        const user = await User.findByPk(id);
+        let favorite = user.favorites; 
+    const index = favorite.indexOf(idGame);
+
+    if (index > -1) {
+        favorite.splice(index, 1);
+        await User.update({ favorites: favorite }, { where: { id: id } });
+        res.status(200).send("Game removed");
+    }else {
+        res.status(404).send("Game not found");
       }
-  } )
+    } catch (error) {
+        res.status(400).send(error);
+    }
+} )
 router.get("/:id", async (req, res) => {
     try {
       const { id } = req.params;
