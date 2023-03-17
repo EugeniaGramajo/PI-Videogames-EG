@@ -51,7 +51,7 @@ export default function Details() {
           </div>
           {<div>
            <p>WebPage:</p>
-            {details.webpage? <a href={details.webpage}>{details.webpage}</a> : <p>This game do not have a webpage</p>}  
+            {details.webpage? <a href={details.webpage} target="_blank">{details.webpage}</a> : <p>This game do not have a webpage</p>}  
          </div>}
           
         </div>
