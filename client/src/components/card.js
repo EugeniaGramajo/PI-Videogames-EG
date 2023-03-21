@@ -9,7 +9,7 @@ export default function Card(props) {
         <Link to={`/videogames/${props.id}`}>
           <div className={styles.cardimage}>
             <div className={styles.divimg}>
-              <img className={styles.img} src={props.image} alt={props.name} />
+              <img className={styles.img} src={props?.image} alt={props.name} />
             </div>
             <div className={styles.cardinfo}>
               <p className={styles.cardname}>{props.name}</p>

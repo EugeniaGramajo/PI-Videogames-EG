@@ -4,7 +4,7 @@ const getAllPlatforms = require('./src/controllers/getAllPlatforms.js');
 const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
-conn.sync().then(() => {
+conn.sync({force:true}).then(() => {
   server.listen(3001,async () => {
     await getAllGenres()
     await getAllPlatforms()
