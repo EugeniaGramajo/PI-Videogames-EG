@@ -32,6 +32,7 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.TEXT,
       allowNull: true,
+      defaultValue: "https://www.sportsgamersonline.com/wp-content/uploads/2022/07/PC-Gaming.png"
 }
   },
   {

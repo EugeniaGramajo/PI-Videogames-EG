@@ -18,12 +18,8 @@ const postCustomVideogame = async (formData) => {
     throw 'The game already exist! Choose another name.'
 
   }
-  const newGame = await(image.length!==0? Videogame.create({
-    name, summary, released, rating, platform, image  }) : Videogame.create({
-    name, summary, released, rating, platform, image: "https://www.sportsgamersonline.com/wp-content/uploads/2022/07/PC-Gaming.png"
-  }) )
-
-  
+  const newGame = await Videogame.create({
+    name, summary, released, rating, platform, image  }) 
 
   const allGenres = await getAllGenres();
   const filteredGenres = genres.map(genre => (
