@@ -48,6 +48,9 @@ export default function CustomVideogame(){
     }
     const changeHandler = (e)=>{
         e.preventDefault()
+        if(!e.target.value){
+            setError({...error, [e.target.name] : e.target.value })
+        }
         setForm({...form, [e.target.name] : e.target.value})
     }
     const imageHandler = async (e) => {

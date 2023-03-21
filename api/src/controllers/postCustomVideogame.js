@@ -16,7 +16,6 @@ const postCustomVideogame = async (formData) => {
 
   if(gameAlreadyExist){
     throw 'The game already exist! Choose another name.'
-
   }
   const newGame = await Videogame.create({
     name, summary, released, rating, platform, image  }) 
