@@ -1,6 +1,7 @@
 const { Videogame } = require('../db');
 const getAllGenres = require('./getAllGenres');
 const fs = require('fs');
+const { error } = require('console');
 
 const postCustomVideogame = async (formData) => {
   const {
@@ -8,14 +9,14 @@ const postCustomVideogame = async (formData) => {
   } = formData
 
   if(!name || !summary || !platform){
-    throw  'Missing required information.'}
+    throw {message: 'Missing required information.'}}
 
   const gameAlreadyExist = await Videogame.findOne({
     where:{ name }
   })
 
   if(gameAlreadyExist){
-    throw 'The game already exist! Choose another name.'
+    throw {message: 'The game already exist! Choose another name.'}
   }
   const newGame = await Videogame.create({
     name, summary, released, rating, platform, image  }) 
