@@ -107,7 +107,8 @@ export default function CustomVideogame(){
         setError({name:nameError, summary: summaryError, platforms:platformError, rating: ratingError,
         released:releaseError, genres: genresError, released: dateError})
 
-        try{if(Object.values(error).every((value) => value === "")){
+        try{
+            if(Object.values(error).every((value) => value === "")){
           await  axios.post("/videogames", {name: form.name,summary: form.summary,platform: form.platforms,released: form.released,rating: form.rating,genres: form.genres,image: form.image} )
             .then(response =>{ alert(response.data.message)
                 resetForm()
