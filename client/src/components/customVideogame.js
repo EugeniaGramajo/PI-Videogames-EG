@@ -113,13 +113,11 @@ export default function CustomVideogame(){
                 resetForm()
             })
         }} catch(error){
-            console.log(error)
-            alert(error)
+            alert(error.response.data)
         }
         
         ;}
-    
-      console.log(form)
+
        return(
         <>
         <div className={styles.general}>
