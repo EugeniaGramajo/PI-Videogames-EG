@@ -9,14 +9,14 @@ const postCustomVideogame = async (formData) => {
   } = formData
 
   if(!name || !summary || !platform){
-    throw {message: 'Missing required information.'}}
+    throw new Error('Missing required information.') }
 
   const gameAlreadyExist = await Videogame.findOne({
     where:{ name }
   })
 
   if(gameAlreadyExist){
-    throw {message: 'The game already exist! Choose another name.'}
+    throw new Error('The game already exist! Choose another name.') 
   }
   const newGame = await Videogame.create({
     name, summary, released, rating, platform, image  }) 
